@@ -7,8 +7,9 @@ Turing.setadbackend(:reversediff)
 # functions
 function top(x,n = 3, test = false)
     """
-    Returns the proportion of top n picks from the neural net prbabilities, 
-    for a given data set x.
+    Generates list of every possible order of n picks from the neural net prbabilities
+    e.g. the 3 most likely species (in order) for a given data point.
+    Adds up the instances of each combination, in a given data set x.
     If x is training data subset for instances of a given species, then
     return proportions.
     If x is test data, then return the actual counts.
@@ -82,8 +83,8 @@ y_vals3 = top(pred_sub,3, test = true)
 
 # draw samples
 top_chain1 = sample(top3_model(aatop,odtop,pctop,srtop,vgtop, y_vals1, n÷4), MH(), 1000000)
-top_chain2 = sample(top3_model(aatop,odtop,pctop,srtop,vgtop, y_vals2, n÷4), MH(), 1000000)
-top_chain3 = sample(top3_model(aatop,odtop,pctop,srtop,vgtop, y_vals3, n÷4), MH(), 1000000)
+top_chain2 = sample(top3_model(aatop2,odtop2,pctop2,srtop2,vgtop2, y_vals2, n÷4), MH(), 1000000)
+top_chain3 = sample(top3_model(aatop3,odtop3,pctop3,srtop3,vgtop3, y_vals3, n÷4), MH(), 1000000)
 
     
 # plotting
